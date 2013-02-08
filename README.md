@@ -14,7 +14,7 @@ gem 'cloze', :git => 'git://github.com/bchase/cloze.git'
 
 And then execute:
 
-```ruby
+```bash
 $ bundle
 ```
 
