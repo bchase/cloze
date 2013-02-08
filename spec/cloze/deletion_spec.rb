@@ -52,14 +52,18 @@ describe Cloze::Deletion do
   end
 
   describe '#default_deletion_character=' do
-    it 'changes the default deletion character' do
+    before do
+      @orig_char = Cloze::Deletion.default_deletion_character
       Cloze::Deletion.default_deletion_character = '?'
+    end
 
+    it 'changes the default deletion character' do
       arr = "foo".cloze_delete(:each)
       arr.should == ['?oo','f?o','fo?']
+    end
 
-      arr = "foo".cloze_delete(:each, with: '#') 
-      arr.should == ['#oo','f#o','fo#']
+    after do
+      Cloze::Deletion.default_deletion_character = @orig_char
     end
   end
 
