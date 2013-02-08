@@ -24,7 +24,6 @@ Simply include `Cloze::Deletion` in `String` or a `String` subclass
 class String
   include Cloze::Deletion
 end
-
 ```
 
 and then use the `.cloze_delete` instance method to perform cloze deletions
