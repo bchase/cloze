@@ -47,6 +47,20 @@ and then use the `.cloze_delete` instance method to perform cloze deletions
 # => ['?oo','f?o','fo?']
 ```
 
+`.cloze_delete` will default to `:each` if no arguments are supplied
+
+```ruby
+"foo".cloze_delete
+# => ['?oo','f?o','fo?']
+```
+
+and it can also be used simply as `.cloze`
+
+```ruby
+"foo".cloze
+# => ['?oo','f?o','fo?']
+```
+
 It's also possible to permanently change the cloze deletion character:
 
 ```ruby
