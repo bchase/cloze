@@ -1,6 +1,6 @@
 # Cloze
 
-TODO: Write a gem description
+A Ruby cloze deletion module
 
 ## Installation
 
@@ -18,12 +18,48 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply include `Cloze::Deletion` in `String` or a `String` subclass
+
+```ruby
+class String
+  include Cloze::Deletion
+end
+
+```
+
+and then use the `.cloze_delete` instance method to perform cloze deletions
+
+```ruby
+"foo".cloze_delete(:each) 
+# => ['#oo','f#o','fo#']
+
+"foo".cloze_delete(:each, :all) 
+# => ['#oo','f#o','fo#','###']
+
+"巻き込む".cloze_delete(:kanji) 
+# => ['#き込む','巻き#む']
+
+
+# using a different cloze deletion character...
+
+"foo".cloze_delete(:each, with: '?')
+# => ['?oo','f?o','fo?']
+```
+
+It's also possible to permanently change the cloze deletion character:
+
+```ruby
+Cloze::Deletion.default_deletion_character = '?'
+
+"foo".cloze_delete(:each)
+# => ['?oo','f?o','fo?']
+```
 
 ## Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+3. Write specs
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create new Pull Request
