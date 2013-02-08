@@ -40,6 +40,8 @@ module Cloze::Deletion
     strs
   end
 
+  alias :cloze :cloze_delete
+
 private
   def self.included(base)
     raise TypeError, "#{self} must be included in String or one of its subclasses" unless base <= String
