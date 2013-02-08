@@ -23,14 +23,14 @@ describe Cloze::Deletion do
       arr.should == ['#oo','f#o','fo#','###']
     end
 
-    it 'cloze deletes kanji only', focus: true do
+    it 'cloze deletes kanji only' do
       arr = "巻き込む".cloze_delete(:kanji) 
       arr.should == ['#き込む','巻き#む']
     end
 
     it 'cloze deletes kanji and the whole string' do
       arr = "巻き込む".cloze_delete(:kanji, :all)
-      arr.should == ['f','o','o']
+      arr.should == ['####','#き込む','巻き#む']
     end
 
     it 'cloze deletes with a different separator' do
