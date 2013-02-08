@@ -8,12 +8,12 @@ describe Cloze::Deletion do
   end
 
   describe '.cloze_delete' do
-    it 'cloze deletes each character', focus: true do
+    it 'cloze deletes each character' do
       arr = "foo".cloze_delete(:each) 
       arr.should == ['#oo','f#o','fo#']
     end
 
-    it 'cloze deletes the whole string' do
+    it 'cloze deletes the whole string', focus: true do
       arr = "foo".cloze_delete(:all)
       arr.should == ['###']
     end
@@ -51,7 +51,7 @@ describe Cloze::Deletion do
     end
   end
 
-  describe '#included', focus: true do
+  describe '#included' do
     it 'raises a TypeError when included in a non-String class' do
       expect{
         class Array

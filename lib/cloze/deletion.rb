@@ -1,3 +1,5 @@
+require 'cloze/japanese_string_helpers'
+
 require 'active_support/core_ext/array/extract_options'
 
 module Cloze::Deletion
@@ -8,15 +10,33 @@ module Cloze::Deletion
     strs = []
 
     if opts.include? :each
+      # TODO extract to method
+      self.split('').each_with_index do |_, i|
+        str    = self.clone
+        str[i] = char
+        strs  << str
+      end
     end
 
-    # if opts.include? :all
-    # if opts.include? :kanji
+    if opts.include? :all
+      strs << Array.new(self.size, char).join
+    end
+
+    if opts.include? :kanji
+      self.split('').each_with_index do |_, i|
+        str    = self.clone
+        str[i] = char
+        strs  << str
+      end
+    end
 
     strs
   end
 
 private
+  def cloze_delete_each(char)
+  end
+
   def self.default_deletion_character
     '#'
   end
