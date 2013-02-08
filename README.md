@@ -8,15 +8,15 @@ GitHub: [bchase/cloze](https://github.com/bchase/cloze)
 
 Add this line to your application's Gemfile:
 
-    gem 'cloze'
+```ruby
+gem 'cloze', :git => 'git://github.com/bchase/cloze.git'
+```
 
 And then execute:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install cloze
+```ruby
+$ bundle
+```
 
 ## Usage
 
