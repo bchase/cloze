@@ -1,8 +1,12 @@
 require 'cloze/japanese_string_helpers'
 
 require 'active_support/core_ext/array/extract_options'
+require 'active_support/core_ext/module/attribute_accessors'
 
 module Cloze::Deletion
+  mattr_accessor :default_deletion_character
+  self.default_deletion_character = '#'
+
   def cloze_delete(*args)
     opts = args.select {|arg| arg.is_a? Symbol}
     char = args.extract_options![:with] || Cloze::Deletion.default_deletion_character
@@ -36,10 +40,6 @@ module Cloze::Deletion
   end
 
 private
-  def self.default_deletion_character
-    '#'
-  end
-
   def self.included(base)
     raise TypeError, "#{self} must be included in String or one of its subclasses" unless base <= String
     base.send :include, Cloze::JapaneseStringHelpers
