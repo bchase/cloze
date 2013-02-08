@@ -37,6 +37,19 @@ describe Cloze::Deletion do
       arr = "foo".cloze_delete(:each, with: '?')
       arr.should == ['?oo','f?o','fo?']
     end
+
+    it 'defaults to :each if no args are supplied' do
+      arr = "foo".cloze_delete
+      arr.should == ['#oo','f#o','fo#']
+    end
+  end
+
+  describe '.cloze' do
+    it 'is an alias for .cloze_delete' do
+      pending
+      arr = "foo".cloze_delete(:each, :all) 
+      arr.should == ['#oo','f#o','fo#','###']
+    end
   end
 
   describe '#default_deletion_character=' do

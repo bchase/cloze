@@ -9,6 +9,7 @@ module Cloze::Deletion
 
   def cloze_delete(*args)
     opts = args.select {|arg| arg.is_a? Symbol}
+    opts = [:each] if opts.empty?
     char = args.extract_options![:with] || Cloze::Deletion.default_deletion_character
     # TODO ^ better var name
 
