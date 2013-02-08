@@ -1,0 +1,2 @@
+module Cloze::Deletion
+end
