@@ -2,6 +2,8 @@
 
 A Ruby cloze deletion module
 
+GitHub: [bchase/cloze](https://github.com/bchase/cloze)
+
 ## Installation
 
 Add this line to your application's Gemfile:
