@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'spec_helper'
 
 describe Cloze::Deletion do
@@ -6,7 +8,7 @@ describe Cloze::Deletion do
   end
 
   describe '.cloze_delete' do
-    it 'cloze deletes each character' do
+    it 'cloze deletes each character', focus: true do
       arr = "foo".cloze_delete(:each) 
       arr.should == ['#oo','f#o','fo#']
     end
@@ -46,6 +48,16 @@ describe Cloze::Deletion do
 
       arr = "foo".cloze_delete(:each, with: '#') 
       arr.should == ['#oo','f#o','fo#']
+    end
+  end
+
+  describe '#included', focus: true do
+    it 'raises a TypeError when included in a non-String class' do
+      expect{
+        class Array
+          include Cloze::Deletion
+        end
+      }.to raise_error(TypeError)
     end
   end
 end
