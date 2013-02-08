@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Cloze::JapaneseStringHelpers, focus: true do
+describe Cloze::JapaneseStringHelpers do
   before(:each) do
     String.send :include, Cloze::JapaneseStringHelpers
   end

@@ -13,7 +13,7 @@ describe Cloze::Deletion do
       arr.should == ['#oo','f#o','fo#']
     end
 
-    it 'cloze deletes the whole string', focus: true do
+    it 'cloze deletes the whole string' do
       arr = "foo".cloze_delete(:all)
       arr.should == ['###']
     end
@@ -23,7 +23,7 @@ describe Cloze::Deletion do
       arr.should == ['#oo','f#o','fo#','###']
     end
 
-    it 'cloze deletes kanji only' do
+    it 'cloze deletes kanji only', focus: true do
       arr = "巻き込む".cloze_delete(:kanji) 
       arr.should == ['#き込む','巻き#む']
     end
