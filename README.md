@@ -51,14 +51,14 @@ and then use the `.cloze_delete` instance method to perform cloze deletions
 
 ```ruby
 "foo".cloze_delete
-# => ['?oo','f?o','fo?']
+# => ['#oo','f#o','fo#']
 ```
 
 and it can also be used simply as `.cloze`
 
 ```ruby
 "foo".cloze
-# => ['?oo','f?o','fo?']
+# => ['#oo','f#o','fo#']
 ```
 
 It's also possible to permanently change the cloze deletion character:
